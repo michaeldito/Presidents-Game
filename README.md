@@ -29,5 +29,5 @@ Their rank from lowest -> highest is as follows:
 The first person to play their entire hand is deemed the President, and the game is 
 played until nobody has any cards left.
 
-(Model of the Game:)
-[https://go.gliffy.com/go/publish/12680779]
+[Model of the Game]
+(https://go.gliffy.com/go/publish/12680779)
