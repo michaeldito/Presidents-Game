@@ -1,3 +1,6 @@
+const {Card} = require('./card');
+const {SUITS, RANKS} = require('./card_constants');
+
 class Deck {
   constructor() {
     this.deck = []
@@ -7,12 +10,10 @@ class Deck {
 
   reset() {
     this.deck = []
-    const suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
-    const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-    for (let suit of suits) {
-      for (let rank of ranks) {
-        let card = { suit, rank }
-        this.deck.push(card)
+    for (let suit of SUITS) {
+      for (let rank of RANKS) {
+        let card = new Card(suit, rank);
+        this.deck.push(card);
       }
     }
   }
@@ -31,11 +32,13 @@ class Deck {
     return this.deck.pop();
   }
 
+  isEmpty() {
+    return this.deck.length == 0;
+  }
+
   toString() {
-    return JSON.stringify(this.deck)
+    return this.deck.map(card => card.toString());
   }
 }
 
-const D = new Deck();
-while (D.deck.length > 0)
-  console.log(D.deal())
+module.exports = {Deck};
