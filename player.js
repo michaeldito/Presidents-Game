@@ -1,7 +1,5 @@
 const {DEFAULT_STRATEGY} = require('./strategy-constants');
 const {DefaultStrategy} = require('./selectionStrategy');
-const {Card} = require('./card');
-const _ = require('lodash');
 
 const PLAYER = '[player]';
 
@@ -11,6 +9,10 @@ class Player {
     this.hand = [];
     this.selectionStrategy = null;
     this.setSelectionStrategy(strategyType);
+  }
+
+  getName() {
+    return this.name;
   }
 
   setSelectionStrategy(strategyType) {
@@ -23,8 +25,8 @@ class Player {
     this.hand.push(card);
   }
 
-  selectCardFromHand() {
-    return this.selectionStrategy.selection();
+  selectCardsBetterThan(previousSelectionValue) {
+    return this.selectionStrategy.selection(previousSelectionValue);
   }
 
   stillHasCards() {

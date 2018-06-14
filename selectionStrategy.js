@@ -3,8 +3,8 @@ class DefaultStrategy {
     this.hand = hand;
   }
 
-  selection() {
-    return this.hand.pop();
+  selection(previousSelectionValue) {
+    return this.hand.find((card) => card.getValue() > previousSelectionValue);
   }
 }
 
